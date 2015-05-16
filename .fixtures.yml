@@ -1,0 +1,5 @@
+---
+fixtures:
+  symlinks:
+    mcafee: "#{source_dir}"
+    rsync: "#{source_dir}/../rsync"
