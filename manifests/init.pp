@@ -16,6 +16,9 @@ class mcafee(
   $rsync_timeout = hiera('rsync::timeout','2')
 ){
 
+  validate_string($rsync_server)
+  validate_integer($rsync_timeout)
+
   case $::hardwaremodel {
     'x86_64': {
       $mcafee_package = 'mcafee-uvscan64'
