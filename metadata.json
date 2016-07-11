@@ -1,6 +1,6 @@
 {
-  "name":    "pupmod-simp-mcafee",
-  "version": "4.1.0",
+  "name":    "simp-mcafee",
+  "version": "4.1.1",
   "author":  "Simp Team",
   "summary": "A SIMP module for managing mcafee",
   "license": "Apache-2.0",
