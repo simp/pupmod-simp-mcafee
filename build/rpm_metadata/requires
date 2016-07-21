@@ -1,2 +1,2 @@
-Requires: pupmod-rsync >= 2.0.0-0
+Requires: pupmod-simp-rsync >= 2.0.0-0
 Obsoletes: pupmod-mcafee-test >= 0.0.1

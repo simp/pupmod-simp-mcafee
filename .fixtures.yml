@@ -1,8 +1,10 @@
 ---
 fixtures:
   repositories:
-    rsync: "git://github.com/simp/pupmod-simp-rsync"
-    simplib: "git://github.com/simp/pupmod-simp-simplib"
-    stdlib: "git://github.com/simp/puppetlabs-stdlib"
+    rsync: "https://github.com/simp/pupmod-simp-rsync"
+    simplib: "https://github.com/simp/pupmod-simp-simplib"
+    stdlib:
+      repo: "https://github.com/simp/puppetlabs-stdlib"
+      branch: "simp-master"
   symlinks:
     mcafee: "#{source_dir}"
