@@ -1,5 +1,7 @@
----
-fixtures:
-  symlinks:
-    mcafee: "#{source_dir}"
-    rsync: "#{source_dir}/../rsync"
+--- 
+  fixtures: 
+    symlinks: 
+      mcafee: "#{source_dir}"
+      rsync: "#{source_dir}/../rsync"
+      simplib: "#{source_dir}/../simplib"
+      stdlib: "#{source_dir}/../stdlib"
