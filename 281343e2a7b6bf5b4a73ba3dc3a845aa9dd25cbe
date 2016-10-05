@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_01bb44c5",
+        "filename": "metadata.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1004834
+      },
+      "writtenOn": "2016-10-05T18:17:48Z",
+      "side": 0,
+      "message": "rsync is missing",
+      "revId": "281343e2a7b6bf5b4a73ba3dc3a845aa9dd25cbe",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
