@@ -16,7 +16,7 @@ describe 'mcafee' do
           it { is_expected.to create_rsync('mcafee').with(
             :server  => 'test.example.domain',
             :timeout => '2',
-            :source  => 'mcafee/',
+            :source  => "mcafee_#{environment}/",
             :target  => '/opt/mcafee_dat',
             :delete  => true
           )}
