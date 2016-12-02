@@ -12,7 +12,7 @@
 # * Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class mcafee(
-  $rsync_source = "mcafee_${environment}/",
+  $rsync_source = "mcafee_${::environment}/",
   $rsync_server = hiera('rsync::server'),
   $rsync_timeout = hiera('rsync::timeout','2')
 ){
