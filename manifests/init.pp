@@ -7,18 +7,21 @@
 # that is appropriate, or drop a script into the cron.* directory that is
 # appropriate.
 #
+# == Parameters
+#
+# @param rsync_source[String]
+# @param rsync_server[String]
+# @param rysnc_timeout[Stdlib::Compat::Integer]
+#
 # == Authors
 #
 # * Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class mcafee(
-  $rsync_source = "mcafee_${::environment}/",
-  $rsync_server = hiera('rsync::server'),
-  $rsync_timeout = hiera('rsync::timeout','2')
+  String                   $rsync_source  = "mcafee_${::environment}/",
+  String                   $rsync_server  = simplib::lookup('simp_options::rsync::server', { 'default_value'  => '127.0.0.1'}),
+  Stdlib::Compat::Integer  $rsync_timeout = simplib::lookup('simp_options::rsync::timeout', { 'default_value' => '2' })
 ){
-
-  validate_string($rsync_server)
-  validate_integer($rsync_timeout)
 
   case $::hardwaremodel {
     'x86_64': {
