@@ -1,29 +1,23 @@
-# == Class mcafee
+# Install the command line McAfee anti-virus scanner and configures updates to
+# be pulled from rsync.
 #
-# This class installed the command line McAfee anti-virus scanner and
-# configures updates to be pulled from rsync.
-#
-# If you wish to schedule a virus scan, you will need to create a cron job
-# that is appropriate, or drop a script into the cron.* directory that is
+# If you wish to schedule a virus scan, you will need to create a cron job that
+# is appropriate, or drop a script into the cron.* directory that is
 # appropriate.
 #
-# == Parameters
+# @param rsync_source
+# @param rsync_server
+# @param rysnc_timeout
 #
-# @param rsync_source[String]
-# @param rsync_server[String]
-# @param rysnc_timeout[Stdlib::Compat::Integer]
-#
-# == Authors
-#
-# * Trevor Vaughan <tvaughan@onyxpoint.com>
+# @author Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class mcafee(
-  String                   $rsync_source  = "mcafee_${::environment}/",
-  String                   $rsync_server  = simplib::lookup('simp_options::rsync::server', { 'default_value'  => '127.0.0.1'}),
-  Stdlib::Compat::Integer  $rsync_timeout = simplib::lookup('simp_options::rsync::timeout', { 'default_value' => '2' })
+  String        $rsync_source  = "mcafee_${::environment}/",
+  Simplib::Host $rsync_server  = simplib::lookup('simp_options::rsync::server', { 'default_value'  => '127.0.0.1'}),
+  Integer       $rsync_timeout = simplib::lookup('simp_options::rsync::timeout', { 'default_value' => 2 })
 ){
 
-  case $::hardwaremodel {
+  case $facts['hardwaremodel'] {
     'x86_64': {
       $mcafee_package = 'mcafee-uvscan64'
     }
