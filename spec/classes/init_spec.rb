@@ -15,7 +15,7 @@ describe 'mcafee' do
           it { is_expected.to create_file('/opt/mcafee_dat').that_requires('Package[mcafee-uvscan64]') }
           it { is_expected.to create_rsync('mcafee').with(
             :server  => 'test.example.domain',
-            :timeout => '2',
+            :timeout => 2,
             :source  => "mcafee_#{environment}/",
             :target  => '/opt/mcafee_dat',
             :delete  => true

@@ -1,3 +1,3 @@
 ---
-rsync::server: 'test.example.domain'
-rsync::timeout: '2'
+simp_options::rsync::server: 'test.example.domain'
+simp_options::rsync::timeout: 2

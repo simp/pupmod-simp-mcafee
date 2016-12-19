@@ -1,26 +1,23 @@
-# == Class mcafee
+# Install the command line McAfee anti-virus scanner and configures updates to
+# be pulled from rsync.
 #
-# This class installed the command line McAfee anti-virus scanner and
-# configures updates to be pulled from rsync.
-#
-# If you wish to schedule a virus scan, you will need to create a cron job
-# that is appropriate, or drop a script into the cron.* directory that is
+# If you wish to schedule a virus scan, you will need to create a cron job that
+# is appropriate, or drop a script into the cron.* directory that is
 # appropriate.
 #
-# == Authors
+# @param rsync_source
+# @param rsync_server
+# @param rysnc_timeout
 #
-# * Trevor Vaughan <tvaughan@onyxpoint.com>
+# @author Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class mcafee(
-  $rsync_source = "mcafee_${::environment}/",
-  $rsync_server = hiera('rsync::server'),
-  $rsync_timeout = hiera('rsync::timeout','2')
+  String        $rsync_source  = "mcafee_${::environment}/",
+  Simplib::Host $rsync_server  = simplib::lookup('simp_options::rsync::server', { 'default_value'  => '127.0.0.1'}),
+  Integer       $rsync_timeout = simplib::lookup('simp_options::rsync::timeout', { 'default_value' => 2 })
 ){
 
-  validate_string($rsync_server)
-  validate_integer($rsync_timeout)
-
-  case $::hardwaremodel {
+  case $facts['hardwaremodel'] {
     'x86_64': {
       $mcafee_package = 'mcafee-uvscan64'
     }
