@@ -12,7 +12,7 @@
 # @author Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class mcafee(
-  String        $rsync_source  = "mcafee_${::environment}/",
+  String        $rsync_source  = "mcafee_${::environment}_${facts['os']['name']}/",
   Simplib::Host $rsync_server  = simplib::lookup('simp_options::rsync::server', { 'default_value'  => '127.0.0.1'}),
   Integer       $rsync_timeout = simplib::lookup('simp_options::rsync::timeout', { 'default_value' => 2 })
 ){
