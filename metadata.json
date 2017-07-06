@@ -1,6 +1,6 @@
 {
   "name": "simp-mcafee",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "author": "SIMP Team",
   "summary": "A SIMP module for managing mcafee",
   "license": "Apache-2.0",
