@@ -17,6 +17,8 @@ class mcafee(
   Integer       $rsync_timeout = simplib::lookup('simp_options::rsync::timeout', { 'default_value' => 2 })
 ){
 
+  simplib::assert_metadata($module_name)
+
   case $facts['hardwaremodel'] {
     'x86_64': {
       $mcafee_package = 'mcafee-uvscan64'
